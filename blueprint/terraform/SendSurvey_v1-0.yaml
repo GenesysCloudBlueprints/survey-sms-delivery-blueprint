@@ -1,0 +1,106 @@
+surveyInvite:
+  name: SendSurvey
+  division: New Home
+  startUpRef: "/surveyInvite/states/state[Send Survey by SMS_10]"
+  states:
+    - state:
+        name: Send Survey by SMS
+        refId: Send Survey by SMS_10
+        variables:
+          - stringVariable:
+              name: State.surveyMessage
+              initialValue:
+                noValue: true
+              isInput: false
+              isOutput: false
+        actions:
+          - decision:
+              name: Confirm cell phone number and first name exists
+              condition:
+                exp: "!IsNotSetOrEmpty(Survey.CustomerContact) AND !IsNotSetOrEmpty(Survey.CustomerContact.cellPhone) AND !IsNotSetOrEmpty(Survey.CustomerContact.firstName)"
+              outputs:
+                "yes":
+                  actions:
+                    - decision:
+                        name: Check if opt out is enabled
+                        condition:
+                          exp: Survey.CustomerContact.surveyOptOut
+                        outputs:
+                          "yes":
+                            actions:
+                              - abortSurveyInvite:
+                                  name: Abort Survey
+                                  disposition:
+                                    lit: optOut
+                          "no":
+                            actions:
+                              - updateData:
+                                  name: Create manual survey message
+                                  statements:
+                                    - string:
+                                        variable: State.surveyMessage
+                                        value:
+                                          exp: "Append(\"Hi, \", Survey.CustomerContact.firstName, \". We would love your feedback on your most recent interaction with us and it will only take one minute: \", Survey.Url)"
+                              - callData:
+                                  name: Call Data Action
+                                  category:
+                                    SurveyDataActionsInteg:
+                                      dataAction:
+                                        SendAgentlessOutboundMessage:
+                                          inputs:
+                                            fromAddress:
+                                              lit: "+19197050640"
+                                            textBody:
+                                              exp: State.surveyMessage
+                                            toAddress:
+                                              exp: Survey.CustomerContact.cellPhone.e164
+                                            toAddressMessengerType:
+                                              lit: sms
+                                          successOutputs:
+                                            id:
+                                              noValue: true
+                                          failureOutputs:
+                                            errorCode:
+                                              noValue: true
+                                            status:
+                                              noValue: true
+                                            correlationId:
+                                              noValue: true
+                                            entityId:
+                                              noValue: true
+                                            entityName:
+                                              noValue: true
+                                            userMessage:
+                                              noValue: true
+                                            userParamsMessage:
+                                              noValue: true
+                                            userParams.key:
+                                              noValue: true
+                                            userParams.value:
+                                              noValue: true
+                                            details.errorCode:
+                                              noValue: true
+                                            details.fieldName:
+                                              noValue: true
+                                            details.entityId:
+                                              noValue: true
+                                            details.entityName:
+                                              noValue: true
+                              - completeSurveyInvite:
+                                  name: Send Survey Data to Fake Email Address
+                                  targetAddress:
+                                    lit: not_an_email@company.com
+                                  inviteSubject:
+                                    lit: "<empty>"
+                                  inviteBody:
+                                    lit: "<empty>"
+                                  reminderSubject:
+                                    noValue: true
+                                  reminderBody:
+                                    noValue: true
+                "no":
+                  actions:
+                    - abortSurveyInvite:
+                        name: Abort Survey - no first name or cell phone
+                        disposition:
+                          lit: error
