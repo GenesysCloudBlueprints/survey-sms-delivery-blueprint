@@ -123,18 +123,69 @@ Clone the [survey-sms-delivery-blueprint](https://github.com/GenesysCloudBluepri
 
 ### Configure the Terraform module
 
-1.  Update `terraform/terraform.tfvars` with the same client credentials used for the environment variables.
+1. Update `terraform/terraform.tfvars` with the same client credentials used for the environment variables.
 
-2.  If you opt to change the integration name or data action name in `terraform/modules/data-actions/main.tf`, you will need to update them in the `terraform/SendSurvey_v1-0.yaml` file as well.
+```
+client_id = "<your-client-id>"
+client_secret = "<your-client-secret"
+```
+
+2. Update the queue name in `terraform/modules/media-retention-policies/main.tf` to match the queue you will test the solution with.
+
+```hcl
+data "genesyscloud_routing_queue" "queue" {
+    name = "<your-queue-name>"
+}
+```
+
+3. Update the email domain in `terraform/modules/media-retention-policies/main.tf`
+
+```hcl
+resource "genesyscloud_recording_media_retention_policy" "sendsurvey_policy" {
+    .
+    .
+    .
+    media_policies {
+        call_policy {
+            actions {
+                .
+                .
+                .
+                assign_surveys {
+                    sending_domain = "<your-email-domain>"
+.
+.
+.
+```
+
+4. Update the customer greeting of the survey invite in `terraform/SendSurvey_v1-0.yaml`.
+
+```yaml
+.
+.
+.
+- updateData:
+    name: Create manual survey message
+    statements:
+      - string:
+          variable: State.surveyMessage
+          value:
+            exp: "Append(\"<your-customer-greeting>\")"
+.
+.
+.
+```
+
+5. If you opt to change the integration name or data action name in `terraform/modules/data-actions/main.tf`, you will need to update them in the `terraform/SendSurvey_v1-0.yaml` file as well.
 
 `terraform/modules/data-actions/main.tf`
 ```hcl
 module "integration" {
     source = "git::https://github.com/GenesysCloudDevOps/public-api-data-actions-integration-module.git?ref=main"
     integration_name                = "<your-integration-name>"
-    integration_creds_client_id     = var.client_id
-    integration_creds_client_secret = var.client_secret
-}
+.
+.
+.
 ```
 
 ```hcl
@@ -162,14 +213,6 @@ resource "genesyscloud_integration_action" "action" {
 
 ```
 
-3. Update the queue name in `terraform/modules/media-retention-policies/main.tf` to match the queue you will test the solution with.
-
-```hcl
-data "genesyscloud_routing_queue" "queue" {
-    name = "<your-queue-name>"
-}
-```
-
 ### Deploy
 
 Deploy the Architect flow and Genesys Cloud objects
@@ -183,7 +226,8 @@ $ terraform apply --auto-approve
 
 ## Test your flow
 
-Have the tester dial the DID phone number assigned to the Architect flow outlined in the [Genesys Cloud Configuration](#genesys-cloud-configuration) section. After the call is transfered to an agent and the call is ended, the tester should receive an SMS message with the survey invitation. 
+Have the tester dial the DID phone number assigned to the Architect flow outlined in the [Genesys Cloud Configuration](#genesys-cloud-configuration) section. After the call is transfered to an agent and the call is ended, the tester should receive an SMS message with the survey invitation.
+**Note:** As the tester, it may be convenient to act as both the customer and agent in this scenario.  
 
 ## Additional resources
 * [terraform.io](https://terraform.io "Opens www.terraform.io") 
