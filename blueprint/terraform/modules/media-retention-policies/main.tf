@@ -25,7 +25,7 @@ data "genesyscloud_flow" "sendsurvey_flow" {
 }
 
 data "genesyscloud_routing_queue" "queue" {
-    name = "Transcription Queue"
+    name = "<your-queue-name>"
 }
 
 resource "genesyscloud_quality_forms_survey" "survey_form" {
@@ -115,7 +115,7 @@ resource "genesyscloud_recording_media_retention_policy" "sendsurvey_policy" {
                 delete_recording = false
                 always_delete    = false
                 assign_surveys {
-                    sending_domain = "surveys.mypurecloud.com"
+                    sending_domain = "<your-email-domain>"
                     survey_form_name = genesyscloud_quality_forms_survey.survey_form.name 
                     flow_id = data.genesyscloud_flow.sendsurvey_flow.id
                 }
