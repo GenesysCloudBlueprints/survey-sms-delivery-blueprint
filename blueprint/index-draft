@@ -241,12 +241,12 @@ Have the tester dial the DID phone number assigned to the Architect flow outline
 
 ## Additional resources
 * [terraform.io](https://terraform.io "Opens www.terraform.io") 
-* [CX as Code](https://developer.genesys.cloud/api/rest/CX-as-Code/ "Opens the CX as Code page") 
+* [CX as Code](https://developer.genesys.cloud/devapps/cx-as-code/ "Opens the CX as Code page") 
 * [Genesys Cloud provider documentation](https://registry.terraform.io/providers/MyPureCloud/genesyscloud/latest/docs "Opens the Genesys Cloud provider docs on registry.terraform.io") 
 * [Archy](https://developer.genesys.cloud/devapps/archy/ "Opens the Archy documentation") 
 * ["Deploy a simple IVR using Terraform, CX as Code, and Archy"](https://developer.genesys.cloud/blueprints/simple-ivr-deploy-with-cx-as-code-blueprint/ "Opens the Deploy a simple IVR using Terraform, CX as Code, and Archy blueprint"). 
-* [Architect overview](https://help.mypurecloud.com/articles/architect-overview/) in the Genesys Cloud Resource Center
-* [About web surveys](https://help.mypurecloud.com/articles/about-web-surveys/) in the Genesys Cloud Resource Center
-* [Select the email domain and add email addresses](https://help.mypurecloud.com/articles/manage-acd-email-routing/) in the Genesys Cloud Resource Center
-* [About the Genesys Cloud data actions integration](https://help.mypurecloud.com/articles/about-genesys-cloud-data-actions-integration/) in the Genesys Cloud Resource Center
+* [Architect overview](href='https://help.mypurecloud.com/?p=1441) in the Genesys Cloud Resource Center
+* [About web surveys](href='https://help.mypurecloud.com/?p=175240) in the Genesys Cloud Resource Center
+* [Select the email domain and add email addresses](https://help.mypurecloud.com/?p=64853) in the Genesys Cloud Resource Center
+* [About the Genesys Cloud data actions integration](href='https://help.mypurecloud.com/?p=144553) in the Genesys Cloud Resource Center
 * The [survey-sms-delivery-blueprint](https://github.com/GenesysCloudBlueprints/survey-sms-delivery-blueprint "Opens the project repository on GitHub") repository on GitHub
