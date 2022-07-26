@@ -1,3 +1,7 @@
-# Send Web-Based Surveys via SMS (DRAFT)
-This blueprints demonstrates how to deliver a web-based survey via SMS, including how to configure the process with CX as Code and Archy components
-![Survey SMS Delivery flowchart](blueprint/images/flowchart.png)
+# Send a web-based survey via SMS
+
+This Genesys Cloud Developer Blueprint explains how to send customers an SMS message that contains an invitation to complete a web-based survey about a recent interaction. It also illustrates how to configure the process with CX as Code and Archy components.
+
+![Web-based survey via SMS flowchart](blueprint/images/flowchart.png "Web-based survey via SMS flowchart")
+
+> View the full [Send a web-based survey via SMS blueprint](https://developer.genesys.cloud/blueprints/send-a-web-based-survey-via-sms/) in the Genesys Cloud Developer Center.
