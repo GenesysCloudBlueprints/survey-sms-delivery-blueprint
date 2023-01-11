@@ -7,6 +7,13 @@ image: images/processoverview.png
 category: 7
 summary: This Genesys Cloud Developer Blueprint explains how to send customers an SMS message that contains an invitation to complete a web-based survey about a recent interaction. It also illustrates how to configure the process with CX as Code and Archy components.
 ---
+:::{"alert":"primary","title":"About Genesys Cloud Blueprints","autoCollapse":false} 
+Genesys Cloud blueprints were built to help you jump-start building an application or integrating with a third-party partner. 
+Blueprints are meant to outline how to build and deploy your solutions, not a production-ready turn-key solution.
+ 
+For more details on Genesys Cloud blueprint support and practices 
+please see our Genesys Cloud blueprint [FAQ](https://developer.genesys.cloud/blueprints/faq)sheet.
+:::
 
 This Genesys Cloud Developer Blueprint explains how to send customers an SMS message that contains an invitation to complete a web-based survey about a recent interaction. It also illustrates how to configure the process with CX as Code and Archy components.
 
