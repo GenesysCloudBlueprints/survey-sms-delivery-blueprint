@@ -12,7 +12,7 @@ Genesys Cloud blueprints were built to help you jump-start building an applicati
 Blueprints are meant to outline how to build and deploy your solutions, not a production-ready turn-key solution.
  
 For more details on Genesys Cloud blueprint support and practices 
-please see our Genesys Cloud blueprint [FAQ](https://developer.genesys.cloud/blueprints/faq)sheet.
+please see our Genesys Cloud blueprint [FAQ](https://developer.genesys.cloud/blueprints/faq) sheet.
 :::
 
 This Genesys Cloud Developer Blueprint explains how to send customers an SMS message that contains an invitation to complete a web-based survey about a recent interaction. It also illustrates how to configure the process with CX as Code and Archy components.
@@ -73,7 +73,7 @@ Before you send web surveys by SMS, review the following sections.
 
 ### Incremental SMS messaging costs
 
-Because web surveys are delivered by SMS, you will incur an incremental usage cost for each message that is sent to customers. For more information, see [About SMS messaging](href='https://help.mypurecloud.com/?p=241289 "Goes to the About SMS messaging article") in the Genesys Cloud Resource Center.
+Because web surveys are delivered by SMS, you will incur an incremental usage cost for each message that is sent to customers. For more information, see [About SMS messaging](https://help.mypurecloud.com/?p=241289 "Goes to the About SMS messaging article") in the Genesys Cloud Resource Center.
 
 ### Survey invitation messages
 
@@ -91,7 +91,7 @@ There are fixed rate limits for outbound SMS messages. For more information, see
 
 ###	Create an SMS number for delivering surveys
 
-Create an SMS number that delivers surveys to your customers. You may use an SMS number that you have already purchased. The SMS number can be a long code or a short code. To procure an SMS number, navigate to the **Message** > **SMS Number Inventory** workspace. For more information, see [About SMS messaging](href='https://help.mypurecloud.com/?p=241289 "Goes to the About SMS messaging article in the Genesys Cloud Resource Center").
+Create an SMS number that delivers surveys to your customers. You may use an SMS number that you have already purchased. The SMS number can be a long code or a short code. To procure an SMS number, navigate to the **Message** > **SMS Number Inventory** workspace. For more information, see [About SMS messaging](https://help.mypurecloud.com/?p=241289 "Goes to the About SMS messaging article in the Genesys Cloud Resource Center").
 
 Make a note of the SMS number for use later in this solution.
 
@@ -118,7 +118,7 @@ If the tester is already an external contact in Genesys Cloud, skip this section
 **Note:** Make sure that the **Opt out of surveys** option is not selected in the tester's external contact record.
 :::
 
-1.  In Genesys Cloud, from the**Directory** menu, click **External Contacts**.
+1.  In Genesys Cloud, from the **Directory** menu, click **External Contacts**.
 2.  Click **Add** and then click **Contact**
 4.  Enter the tester's name and continue.
 5.  Enter the tester's contact information. Be sure to do the following:
@@ -133,7 +133,7 @@ The following environment variables hold the OAuth credential grant that is used
 * `GENESYSCLOUD_OAUTHCLIENT_ID` - This variable is the Genesys Cloud client credential grant Id that CX as Code executes against. Mark this environment variable as sensitive.
 * `GENESYSCLOUD_OAUTHCLIENT_SECRET` - This variable is the Genesys Cloud client credential secret that CX as Code executes against. Mark this environment variable as sensitive.
 * `GENESYSCLOUD_REGION` - This variable is the Genesys Cloud region in which your organization is located.
-* `GENESYSCLOUD_ARCHY_LOCATION` - This variable is the region domain for your organization (for example, mypurecloud.com). For more information, see [Overview](developer.genesys.cloud/platform/api/ "Goes to the Overview page").
+* `GENESYSCLOUD_ARCHY_LOCATION` - This variable is the region domain for your organization (for example, mypurecloud.com). For more information, see [Overview](/platform/api/ "Goes to the Overview page").
 
 ### Clone the GitHub repository
 
@@ -242,7 +242,7 @@ $ terraform apply --auto-approve
 
 ## Test your flow
 
-Have the tester dial the DID phone number assigned to the Architect flow outlined in the [Genesys Cloud configuration](#genesys-cloud-configuration "Goes to the Genesys Cloud configuration") section. After the call is transfered to an agent and the call is ended, the tester should receive an SMS message with the survey invitation.
+Have the tester dial the DID phone number assigned to the Architect flow outlined in the [Genesys Cloud configuration](#create-an-sms-number-for-delivering-surveys "Goes to the Create an SMS Number for Delivering Surveys") section. After the call is transfered to an agent and the call is ended, the tester should receive an SMS message with the survey invitation.
 
 :::primary
 **Tip:** As the tester, it may be convenient to act as both the customer and agent in this scenario.
@@ -254,7 +254,7 @@ Have the tester dial the DID phone number assigned to the Architect flow outline
 * [CX as Code](https://developer.genesys.cloud/devapps/cx-as-code/ "Opens the CX as Code page")
 * [Welcome to Archy](https://developer.genesys.cloud/devapps/archy/ "Opens the Welcome to Archy page")
 * ["Deploy a simple IVR using Terraform, CX as Code, and Archy blueprint"](https://developer.genesys.cloud/blueprints/simple-ivr-deploy-with-cx-as-code-blueprint/ "Opens the Deploy a simple IVR using Terraform, CX as Code, and Archy blueprint").
-* [Architect overview]("Opens the Architect overview article") in the Genesys Cloud Resource Center
+* [Architect overview](https://help.mypurecloud.com/articles/architect-overview/ "Opens the Architect overview article") in the Genesys Cloud Resource Center
 * [About web surveys](https://help.mypurecloud.com/?p=175240 "Opens the About web surveys article") in the Genesys Cloud Resource Center
 * [Manage ACD email routing](https://help.mypurecloud.com/?p=64853 "Opens the Manage ACD email routing article") in the Genesys Cloud Resource Center
 * [About the Genesys Cloud data actions integration](https://help.mypurecloud.com/?p=144553 "Opens the About the Genesys Cloud data actions integration article") in the Genesys Cloud Resource Center
