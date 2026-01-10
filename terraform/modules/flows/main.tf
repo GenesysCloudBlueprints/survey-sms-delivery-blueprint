@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     genesyscloud = {
-      source = "genesys.com/mypurecloud/genesyscloud"
-      version = "0.1.0"
+      source  = "mypurecloud/genesyscloud"
+      version = "1.51.0"
     }
   }
 }
@@ -22,7 +22,7 @@ resource "null_resource" "deploy_archy_flow" {
       module.data_actions,
     ]
     provisioner "local-exec" {
-        command = "  archy publish --forceUnlock --file SendSurvey_v1-0.yaml --clientId $GENESYSCLOUD_OAUTHCLIENT_ID --clientSecret $GENESYSCLOUD_OAUTHCLIENT_SECRET --location $GENESYSCLOUD_ARCHY_REGION  --overwriteResultsFile --resultsFile results.json "
+        command = "  archy publish --forceUnlock --file SendSurvey_v1-0.yaml --clientId $GENESYSCLOUD_OAUTHCLIENT_ID --clientSecret $GENESYSCLOUD_OAUTHCLIENT_SECRET --location $GENESYSCLOUD_ARCHY_LOCATION  --overwriteResultsFile --resultsFile results.json "
     }
 }
 
