@@ -4,4 +4,4 @@ This Genesys Cloud Developer Blueprint explains how to send customers an SMS mes
 
 ![Process overview](/blueprint/images/processoverview.png "Process overview")
 
-> View the full [Send a web-based survey via SMS blueprint](https://developer.genesys.cloud/blueprints/send-a-web-based-survey-via-sms/) in the Genesys Cloud Developer Center.
+> View the full [Send a web-based survey via SMS blueprint](https://developer.genesys.cloud/blueprints/survey-sms-delivery-blueprint/) in the Genesys Cloud Developer Center.
