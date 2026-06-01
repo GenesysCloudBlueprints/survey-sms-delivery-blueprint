@@ -137,7 +137,7 @@ The following environment variables hold the OAuth credential grant that is used
 
 ### Clone the GitHub repository
 
-Clone the [survey-sms-delivery-blueprint](https://github.com/GenesysCloudBlueprints/architect-flow-public-api-blueprint "Opens the project repository on GitHub") repository to your local machine.
+Clone the [survey-sms-delivery-blueprint](https://github.com/GenesysCloudBlueprints/survey-sms-delivery-blueprint "Opens the project repository on GitHub") repository to your local machine.
 
 ### Configure the Terraform module
 
